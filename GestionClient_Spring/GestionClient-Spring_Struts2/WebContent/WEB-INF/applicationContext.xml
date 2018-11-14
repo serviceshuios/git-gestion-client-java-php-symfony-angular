@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+<!-- <import resource="DaoHdsSpringContext.xml"/> -->
+	<import resource="classpath:DaoHibernateSpringContext.xml"/>
+	
+	<import resource="classpath:LoggingSpringContext.xml"/>
+	
+	<bean id="abstractServicesAction"
+	class="com.noelmace.gestionclient.spring.struts2.action.AbstractServicesAction" abstract="true">
+		<property name="clientService" ref="clientService"></property>
+		<property name="orderingService" ref="orderingService"></property>
+	</bean>
+	
+	<bean id="createClient"
+	class="com.noelmace.gestionclient.spring.struts2.action.CreateClient" parent="abstractServicesAction"></bean>
+	
+	<bean id="listClient"
+	class="com.noelmace.gestionclient.spring.struts2.action.ListClient" parent="abstractServicesAction"></bean>
+	
+	<bean id="createBdc"
+	class="com.noelmace.gestionclient.spring.struts2.action.CreateBdc" parent="abstractServicesAction"></bean>
+	
+	<bean id="listBdc"
+	class="com.noelmace.gestionclient.spring.struts2.action.ListBdc" parent="abstractServicesAction"></bean>
+
+</beans>

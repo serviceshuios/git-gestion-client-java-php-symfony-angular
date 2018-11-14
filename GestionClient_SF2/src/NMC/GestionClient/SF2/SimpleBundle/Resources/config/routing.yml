@@ -1,0 +1,3 @@
+simple_homepage:
+    path:     /
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Default:index }

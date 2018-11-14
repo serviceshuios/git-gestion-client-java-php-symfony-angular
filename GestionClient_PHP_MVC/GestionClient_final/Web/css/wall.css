@@ -1,0 +1,26 @@
+.wallForm {
+    width : 60%;
+    margin : 15px auto;
+}
+
+textarea.message {
+    width : 100%;
+    min-height: 20em;
+}
+
+.msgContent {
+    text-align: justify;
+}
+
+.msgAuthor {
+    margin-left : 3em;
+    font-style: italic;
+}
+
+.icon {
+    height : 2em;
+    width : 2em;
+    display : inline-block;
+    vertical-align : middle;
+    margin : 0 1em;
+}

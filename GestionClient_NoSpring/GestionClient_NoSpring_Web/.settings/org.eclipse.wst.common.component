@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="GestionClient_NoSpring_Web">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="GestionClient_NoSpring-IoC.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient_NoSpring-IoC/GestionClient_NoSpring-IoC">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GestionClient_NoSpring-DAOJdbc.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient_NoSpring-DAOJdbc/GestionClient_NoSpring-DAOJdbc">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GestionClient_NoSpring-DAOHibernate.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient_NoSpring-DAOHibernate/GestionClient_NoSpring-DAOHibernate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GestionClient_NoSpring-business.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient_NoSpring-business/GestionClient_NoSpring-business">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="GestionClient_NoSpring_Web"/>
+        <property name="java-output-path" value="/GestionClient_NoSpring_Web/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,10 @@
+<div class="view index-view" ng-controller="BdcsCtrl as bdcsCtrl">
+  <div class="row">
+    <h1>Bons de commandes</h1>
+    <search-form class="pull-right" elements="searchElmts" selected-prop="search.prop" pattern="search.pattern"></search-form>
+  </div>
+  <!-- TODO : GroupBy ClientId -->
+  <div class="row top-buffer col-xs-10 col-xs-offset-1">
+    <bdc-card bdc="bdc" ng-repeat="bdc in bdcs | filter : filterObj"></bdc-card>
+  </div>
+</div>

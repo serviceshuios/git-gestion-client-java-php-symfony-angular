@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="client" namespace="/client" extends="default">
+
+        <action name="create" class="createClient">
+            <result name="success">/client/create.jsp</result>
+            <result name="input">/client/create.jsp</result>
+        </action>
+        
+        <action name="list" class="listClient">
+        	<result name="success">/client/list.jsp</result>
+        </action>
+
+    </package>
+</struts>

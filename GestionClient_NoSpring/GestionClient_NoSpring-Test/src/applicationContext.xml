@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	<!-- les commentaires représentent les pseudo-équivalence en Java de la balise suivante -->
+		<!-- gardez à l'esprit que cela n'est que pour faire transition avec les cours précédents -->
+		<!-- étant donné que chaque Bean est ici un singleton (pas d'appel systématique au constructeur) -->
+		<!-- et qu'une classe abstraite ne peu bien entendu pas être instanciée -->
+	
+	
+	<!-- ClientDAO daoClientHibernate = new ClientDAOHibernate(); -->
+	<bean id="daoClientHibernate" class="com.noelmace.gestionclient.nospring.hibernate.dao.ClientDAOHibernate"/>
+	<bean id="daoBdcHibernate" class="com.noelmace.gestionclient.nospring.hibernate.dao.BdcDAOHibernate" />
+	
+	<!-- <bean id="daoClientJdbc" class="com.noelmace.gestionclient.nospring.jdbc.dao.ClientDAOJdbc"/>
+	<bean id="daoBdcJdbc" class="com.noelmace.gestionclient.nospring.jdbc.dao.BdcDAOJdbc" /> -->
+	
+	<!-- ========== SERVICES ========== -->
+	
+	<!-- AbstractService abstractService = new AbstractService(); -->
+	<bean id="abstractService" class="com.noelmace.gestionclient.nospring.business.services.AbstractService" abstract="true" >
+		<!-- abstractService.setDaoBdc(daoBdcHibernate); -->
+		<property name="daoBdc" ref="daoBdcHibernate"></property>
+		<!-- abstractService.setDaoClient(daoClientHibernate); -->
+		<property name="daoClient" ref="daoClientHibernate"></property>
+	</bean>
+	
+	<bean id="orderingService" class="com.noelmace.gestionclient.nospring.business.services.OrderingService" parent="abstractService" />	
+	<bean id="clientService" class="com.noelmace.gestionclient.nospring.business.services.ClientService" parent="abstractService" />   
+
+</beans>

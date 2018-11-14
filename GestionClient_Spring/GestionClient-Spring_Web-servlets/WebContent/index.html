@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestion clients - page d'acceuil</title>
+</head>
+<body>
+	<h1 align="center">Gestion clients</h1>
+		
+	<form method="POST" action="./CreateClient">
+		<table id="ajouterClient" style="margin 0 auto; text-align : center;" >
+			<tr>
+			<th colspan="2" align="center">Ajouter un client</th>
+			</tr>
+			<tr>
+				<td><label>Nom :</label></td>
+				<td><input type="text" title="nom" name="nom" id="nom"/></td>
+			</tr>
+			<tr>
+				<td><label>Prenom :</label></td>
+				<td><input type="text" title="prenom" name="prenom" id="prenom"/></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="Ajouter"></td>
+			</tr>
+		</table>
+	</form>
+	
+	<a href="./ListClients">Afficher les Clients</a>
+
+</body>
+</html>

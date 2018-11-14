@@ -1,0 +1,24 @@
+<form class="search-form form-inline" name="searchForm" role="form">
+  <!-- TODO : disposition mobile -->
+  <div class="form-group nested-group">
+    <input class="form-control" id="search-pattern" name="pattern" ng-model="pattern" min="0" type="{{inputType}}">
+    <!-- solution pour le problème de validation -->
+    <!-- mauvaise animation
+    <div class="input-pattern-container" ng-switch="inputType">
+        <input class="form-control" id="search-pattern" ng-model="$parent.pattern" type="text" ng-switch-default>
+        <input class="form-control" id="search-pattern" ng-model="$parent.pattern" type="number" min="0" ng-switch-when="number">
+        <input class="form-control" id="search-pattern" ng-model="$parent.pattern" type="date" ng-switch-when="date">
+    </div> -->
+    <select class="form-control" ng-model="selectedProp" ng-options="element.prop as element.name for element in elements">
+      <!--
+      identique à (sans ng-options) :
+      <option ng-repeat="element in elements" value="{{element.prop}}">
+        {{element.name}}
+      </option>
+      -->
+    </select>
+    <label class="btn btn-primary" for="search-pattern">
+      <span class="glyphicon glyphicon-search"></span>
+    </label>
+  </div>
+</form>

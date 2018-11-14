@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/default-template.xhtml">
+		<ui:define name="pageTitle">#{bdcMsg.listTitle}</ui:define>
+		<ui:define name="content">
+			<h:form rendered="#{not empty clientBacking.clientList}">
+
+				<h:dataTable value="#{bdcBacking.bdcList}" var="bdc"
+					styleClass="beanlist">
+					<h:column>
+						<f:facet name="header">#{bdcMsg.id}</f:facet>
+					#{bdc.id}
+				</h:column>
+					<h:column>
+						<f:facet name="header">#{bdcMsg.ref}</f:facet>
+					#{bdc.ref}
+				</h:column>
+					<h:column>
+						<f:facet name="header">#{bdcMsg.price}</f:facet>
+					#{bdc.price}
+				</h:column>
+					<h:column>
+						<f:facet name="header">#{bdcMsg.clientId}</f:facet>
+					#{bdc.clientId}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+						<h:commandLink action="#{bdcBacking.delete(bdc)}">
+							<h:graphicImage name="img/delete.png" height="25" width="25"
+								style="margin-top : 4px" />
+						</h:commandLink>
+						<h:commandLink action="#{bdcBacking.initModify(bdc)}">
+							<h:graphicImage name="img/modify.png" height="25" width="25"
+								style="margin-top : 4px" />
+						</h:commandLink>
+					</h:column>
+					<!-- TODO : delete and modify -->
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

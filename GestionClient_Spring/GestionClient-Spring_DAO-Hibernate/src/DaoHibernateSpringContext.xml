@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+
+	<!-- ========== HIBERNATE CONFIGURATION ========== -->
+
+	<context:property-placeholder location="classpath:persistence-mysql.properties" />
+
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.pass}" />
+	</bean>
+
+<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"> -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+<!-- 	<property name="configLocation" value="hibernate.cfg.xml" /> -->
+<!-- 	<property name="packagesToScan" value="com.noelmace.gestionclient.spring.business.entities" /> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>
+					classpath:/com/noelmace/gestionclient/spring/dao/hibernate/mapping/BonDeCommande.hbm.xml
+				</value>
+				<value>
+					classpath:/com/noelmace/gestionclient/spring/dao/hibernate/mapping/Client.hbm.xml
+				</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<!-- ========== DAO HIBERNATE ========== -->
+
+	<bean id="abstractDaoHibernate" class="com.noelmace.gestionclient.spring.dao.hibernate.DAOHibernate" abstract="true">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="daoClientHibernate" class="com.noelmace.gestionclient.spring.dao.hibernate.ClientDAOHibernate" parent="abstractDaoHibernate" />
+	<bean id="daoBdcHibernate" class="com.noelmace.gestionclient.spring.dao.hibernate.BonDeCommandeDAOHibernate" parent="abstractDaoHibernate" />
+
+	<!-- ========== DTO ASSEMBLER ========== -->
+
+	<bean id="assembler" class="com.noelmace.gestionclient.spring.business.dto.AssemblerImpl" scope="singleton"/>
+
+	<!-- ========== SERVICES ========== -->
+
+	<bean id="abstractService" class="com.noelmace.gestionclient.spring.business.services.AbstractService" abstract="true" >
+		<property name="daoBdc" ref="daoBdcHibernate"></property>
+		<property name="daoClient" ref="daoClientHibernate"></property>
+		<property name="assembler" ref="assembler"></property>
+	</bean>
+
+	<bean id="orderingService" class="com.noelmace.gestionclient.spring.business.services.OrderingService" parent="abstractService" />
+	<bean id="clientService" class="com.noelmace.gestionclient.spring.business.services.ClientService" parent="abstractService" />
+</beans>

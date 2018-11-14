@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="bdc" namespace="/bdc" extends="default">
+
+        <action name="create" class="createBdc">
+            <result name="success">/bdc/create.jsp</result>
+            <result name="input">/bdc/create.jsp</result>
+        </action>
+        
+        <action name="list" class="listBdc">
+        	<result name="success">/bdc/list.jsp</result>
+        </action>
+
+    </package>
+</struts>

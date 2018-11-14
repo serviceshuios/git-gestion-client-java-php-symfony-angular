@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="GestionClient-Spring_Spring-MVC">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="GestionClient-Spring_Business.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient-Spring_Business/GestionClient-Spring_Business">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GestionClient-Spring_DAO-Hibernate.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient-Spring_DAO-Hibernate/GestionClient-Spring_DAO-Hibernate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GestionClient-Spring_Logging.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestionClient-Spring_Logging/GestionClient-Spring_Logging">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="GestionClient-Spring_Spring-MVC"/>
+        <property name="java-output-path" value="/GestionClient-Spring_Spring-MVC/build/classes"/>
+    </wb-module>
+</project-modules>

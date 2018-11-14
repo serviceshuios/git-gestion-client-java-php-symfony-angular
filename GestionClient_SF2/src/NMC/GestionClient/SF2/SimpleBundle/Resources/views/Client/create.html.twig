@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %} {% block title %}Ajouter un client !{%
+endblock %} {% block body %}
+<h2>Ajouter un client</h2>
+<div class="formWrapper">
+	{{ form_start(form, {'attr': {'class': 'createForm'}}) }} {# Les
+	erreurs générales du formulaire. #} {{ form_errors(form) }}
+
+	<fieldset>
+		<legend> Informations du client </legend>
+		<table>
+			<tr>
+				<td class="label">{{ form_label(form.login) }}</td>
+				<td class="input">{{ form_widget(form.login, {'attr': {'class':
+					'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{ form_errors(form.login) }}</td>
+			</tr>
+			<tr>
+				<td class="label">{{ form_label(form.nom) }}</td>
+				<td class="input">{{ form_widget(form.nom, {'attr': {'class':
+					'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{ form_errors(form.nom) }}</td>
+			</tr>
+
+			<tr>
+				<td class="label">{{ form_label(form.prenom) }}</td>
+				<td class="input">{{ form_widget(form.prenom, {'attr': {'class':
+					'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{ form_errors(form.prenom) }}</td>
+			</tr>
+			<tr>
+				<td class="label">{{ form_label(form.password.pass1) }}</td>
+				<td class="input">{{ form_widget(form.password.pass1, {'attr':
+					{'class': 'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{
+					form_errors(form.password.pass1) }}</td>
+			</tr>
+
+			<tr>
+				<td class="label">{{ form_label(form.password.pass2) }}</td>
+				<td class="input">{{ form_widget(form.password.pass2, {'attr':
+					{'class': 'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{
+					form_errors(form.password.pass2) }}</td>
+			</tr>
+
+			<tr>
+				<td class="label">{{ form_label(form.commentaire) }}</td>
+				<td class="input">{{ form_widget(form.commentaire, {'attr':
+					{'class': 'textfield'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{ form_errors(form.commentaire)
+					}}</td>
+			</tr>
+
+			<tr>
+				<td class="label">{{ form_label(form.expiration) }}</td>
+				<td class="input">{{ form_widget(form.expiration, {'attr': {'class':
+					'center'}}) }}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="errorMessage">{{ form_errors(form.expiration)
+					}}</td>
+			</tr>
+
+		</table>
+	</fieldset>
+	<fieldset>
+		<legend>Icon</legend>
+		<table>
+			<tr><td>{{ form_label(form.icon.name) }}</td><td>{{ form_widget(form.icon.name) }}</td></tr>
+			<tr><td>{{ form_label(form.icon.file) }}</td><td>{{ form_widget(form.icon.file) }}</td></tr>
+		</table>
+		{{ form_errors(form.icon) }}
+	</fieldset>
+	<p>{{ form_widget(form.admin) }} {{ form_label(form.admin) }}</p>
+	<p>{{ form_errors(form.commentaire) }}</p>
+	<p>{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+	</p>
+	{{ form_rest(form) }} {{ form_end(form) }}
+
+
+</div>
+
+{% endblock %}

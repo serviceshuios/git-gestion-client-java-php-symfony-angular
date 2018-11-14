@@ -1,0 +1,32 @@
+<div class="well card bdc-card">
+  <!-- TODO : delay + date < today -> bootstrap label-danger-->
+  <div class="row">
+    <p class="col-xs-5">
+      <strong>Creation date :
+      </strong>
+      {{bdc.date | date}}
+    </p>
+    <p class="col-xs-6 col-xs-offset-1 text-right">
+      <strong>Delay :</strong>
+      {{bdc.delay}}
+    </p>
+  </div>
+
+  <h2 class="text-center">{{bdc.designation}}</h2>
+
+  <div class="row">
+        <p class="text-center">
+          {{bdc.description}}
+        </p>
+  </div>
+  <div class="text-right">
+      <div class="btn-group bnt-group-sm">
+          <a ng-href="#/bdcs/{{bdc.id}}/edit" class="btn btn-success">
+              <i class="glyphicon glyphicon-pencil"></i>
+          </a>
+          <a ng-href="#/bdcs/{{bdc.id}}/delete" class="btn btn-danger">
+              <i class="glyphicon glyphicon-trash"></i>
+          </a>
+      </div>
+  </div>
+</div>

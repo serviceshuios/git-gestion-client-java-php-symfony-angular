@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<body>
+	<ui:composition>
+		<h:outputStylesheet name="css/default-menu.css" target="head"/>
+		<div id="menu">
+		<ul>
+			<li>
+				<h:link value="#{menuMsg.home}" outcome="/index" />
+			</li>
+			<li><a href="#">#{menuMsg.clients}</a>
+				<ul>
+					<li><h:link value="#{menuMsg.creer}" outcome="/client/create" /></li>
+					<li><h:link value="#{menuMsg.lister}" outcome="/client/list" /></li>
+				</ul></li>
+			<li><a href="#">#{menuMsg.bdc}</a>
+				<ul>
+					<li><h:link value="#{menuMsg.creer}" outcome="/bdc/create" /></li>
+					<li><h:link value="#{menuMsg.lister}" outcome="/bdc/list" /></li>					
+				</ul></li>
+		</ul>
+		</div>
+	</ui:composition>
+</body>
+</html>

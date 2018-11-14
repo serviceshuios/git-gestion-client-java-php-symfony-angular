@@ -1,0 +1,16 @@
+nmc_user:
+    resource: "@NMCUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+nmc_note:
+    resource: "@NMCNoteBundle/Resources/config/routing.yml"
+    prefix:   /note/
+
+nmc_gestion_client_sf2_simple_client:
+    resource: "@NMCGestionClientSF2SimpleBundle/Resources/config/routing_client.yml"
+    prefix:   /client/
+    
+nmc_gestion_client_sf2_simple:
+    resource: "@NMCGestionClientSF2SimpleBundle/Resources/config/routing.yml"
+    prefix:   /
+

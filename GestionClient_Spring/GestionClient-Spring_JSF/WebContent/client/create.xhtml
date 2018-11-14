@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/default-template.xhtml">
+		<ui:define name="pageTitle">#{clientMsg.creationTitle}</ui:define>
+
+		<ui:define name="content">
+			<ui:include src="/WEB-INF/snippets/create-client-form.xhtml" />
+			<h:panelGroup rendered="#{clientBacking.id > 0}">
+				<div style="text-align: center; margin-top: 5em;">
+					<table class="beanlist">
+					<caption>#{clientMsg.added}</caption>
+						<tr>
+							<th>#{clientMsg.id}</th>
+							<th>#{clientMsg.lastName}</th>
+							<th>#{clientMsg.firstName}</th>
+						</tr>
+						<tr>
+							<td>#{clientBacking.id}</td>
+							<td>#{clientBacking.nom}</td>
+							<td>#{clientBacking.prenom}</td>
+						</tr>
+					</table>
+
+				</div>
+			</h:panelGroup>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

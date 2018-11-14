@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<conf>
+	<actions app="frontend">
+		<action name="default" ref="FrontEndActions/homeAction" />
+		<action name="home" ref="FrontEndActions/homeAction" />
+	</actions>
+	<actions app="backend">
+		<action name="default" ref="BackendActions/homeAction" />
+		<action name="home" ref="BackendActions/homeAction" />
+		<action name="clients" ref="BackendActions/listClients" />
+	</actions>
+	
+	<!-- <actions app="frontend" namespace="Apps\Frontend\Actions\">
+		<action name="default" class="HomeAction" />
+		<action name="home" class="HomeAction" />
+	</actions>
+	<actions app="backend" namespace="Apps\Backend\Actions\">
+		<action name="default" class="HomeAction" />
+		<action name="home" class="HomeAction" />
+		<action name="clients" class="ListClients" />
+	</actions> -->
+</conf>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/antlr"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-logging"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate 4.3.4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MysqlConnector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-dhcp"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GestionClient-Spring_Business"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GestionClient-Spring_DAO-Hibernate"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GestionClient-Spring_DAO-HibernateDaoSupport"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/AspectJ"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GestionClient-Spring_Logging"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

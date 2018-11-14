@@ -1,0 +1,23 @@
+simple_showall_clients:
+    path: /show/
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:showAll }
+    
+simple_create_client:
+    path: /create
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:create }
+    
+simple_delete_client:
+    path: /delete/{login}
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:delete }
+    
+simple_update_client:
+    path: /update/{login}
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:update }
+    
+simple_show_client:
+    path: /show/{login}
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:show }
+    
+simple_showby_client:
+    path: /show/by/{prop}/{value}
+    defaults: { _controller: NMCGestionClientSF2SimpleBundle:Client:showBy }

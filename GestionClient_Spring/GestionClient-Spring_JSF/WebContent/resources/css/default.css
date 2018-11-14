@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+html, body {
+	background-color: Cornsilk;
+	margin: 0 0 0 0;	
+	padding: 0 0 0 0;
+	height: 100%;
+}
+
+#header {
+	text-align: center;
+	background-color: gray;
+	position: fixed;
+	width: 100%;
+	height: 120px;
+}
+
+#pageTitle {
+	text-align: center;
+	display: block;
+	margin-bottom: 2em;
+}
+
+#homeContent {
+	text-align: justify;
+}
+
+#content {
+	padding: 140px 5em 0 5em;
+	margin-bottom : 200px;
+	overflow: auto;
+	height: auto;
+}
+
+.errorMessages {
+	color: Red;
+}
+
+#footer {
+	/*position: absolute;
+	bottom: 0px;*/
+	position: fixed;
+	bottom: 0px;
+	background-color: gray;
+	width: 100%;
+	color: white;
+	text-align: center;
+	border-top: medium solid black;
+	z-index: 20;
+	height: 50px;
+}
+
+table.beanlist {
+	border : medium solid black;
+	border-collapse : collapse;
+	min-width: 500px;
+	width: 50%;
+	max-width : 90%;
+	margin : auto;
+	table-layout: fixed;
+}
+
+table.beanlist td {
+	text-align : center;
+	border : thin solid gray;
+}
+
+table.beanlist caption {
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.createForm {
+	width : 400px;
+	margin: auto;
+}

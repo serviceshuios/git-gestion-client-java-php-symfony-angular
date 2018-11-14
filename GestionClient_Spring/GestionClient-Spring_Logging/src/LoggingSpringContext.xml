@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- ========== Logging ========== -->
+
+	<aop:config>
+		<aop:pointcut id="servicePointcut"  expression="execution(* com.noelmace.gestionclient.spring.business.services.*.*(..))"/>    		
+		<aop:aspect id="loggingAspect" ref="logger">
+		    <aop:before method="logMethodEntry"  pointcut-ref="servicePointcut"/>    		
+		    <aop:after-returning method="logMethodExit" returning="result" pointcut-ref="servicePointcut"/>
+	    </aop:aspect>	    
+	</aop:config>
+	
+	<bean id="logger" class="com.noelmace.gestionclient.spring.aop.logging.Logger"/>
+	    
+</beans>

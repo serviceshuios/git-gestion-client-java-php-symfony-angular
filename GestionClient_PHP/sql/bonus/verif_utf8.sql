@@ -1,0 +1,6 @@
+SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT,
+  CHARACTER_SET_NAME, COLLATION_NAME
+  FROM INFORMATION_SCHEMA.COLUMNS
+  WHERE table_name = 'Client'
+  AND table_schema = 'gestion_client_php'
+  AND column_name LIKE 'expiration';

@@ -1,0 +1,65 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+th {
+  background-color: #337ab7;
+  color: white;
+}
+.top-buffer {
+  margin-top: 20px;
+}
+.card .row {
+  margin-top: 15px;
+}
+.card h2 {
+  margin-bottom: 30px;
+}
+.card-hidden {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.card:hover .card-hidden {
+  height: auto;
+  opacity: 1;
+  overflow: visible;
+  visibility: visible;
+}
+
+.nested-group {
+  input:focus {
+    box-shadow: none;
+  }
+  input:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  input,
+  select {
+    margin-left: -5px;
+    border-radius: 0;
+  }
+  label {
+    margin-left: -5px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.search-form  {
+  .input-pattern-container {
+    display: inline-block;
+  }
+
+
+}
+
+.ng-invalide.ng-dirty {
+  background-color: red;
+}

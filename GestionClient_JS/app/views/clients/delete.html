@@ -1,0 +1,10 @@
+<div class="view" ng-controller="ClientDeleteCtrl as clientDeleteCtrl">
+  <div class="row text-center"><strong>Vous avez demandé la suppression du client suivant :</strong></div>
+  <client-card client="client" class="top-buffer"></client-card>
+  <div class="row">
+      <p class="text-center">
+        Etes-vous certain de vouloir supprimer ce client (opération irréversible) ?
+      </p>
+      <confirm yes="deleteClient()" no="cancel()"></confirm>
+  </div>
+</div>

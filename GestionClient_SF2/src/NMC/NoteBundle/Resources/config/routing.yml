@@ -1,0 +1,7 @@
+nmc_note:
+    path:     /
+    defaults: { _controller: NMCNoteBundle:Default:index }
+    
+nmc_note_clear:
+    path:     /clear
+    defaults: { _controller: NMCNoteBundle:Default:clear }

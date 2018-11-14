@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/default-template.xhtml">
+		<ui:define name="pageTitle">#{bdcMsg.creationTitle}</ui:define>
+		
+		<ui:define name="content">
+			<ui:include src="/WEB-INF/snippets/create-bdc-form.xhtml" />
+			<h:panelGroup rendered="#{not empty bdcBacking.id}">
+				<div style="text-align: center; margin-top: 5em;">
+					<table class="beanlist">
+					<caption>#{bdcMsg.added}</caption>
+						<tr>
+							<th>#{bdcMsg.id}</th>
+							<th>#{bdcMsg.ref}</th>
+							<th>#{bdcMsg.price}</th>
+							<th>#{bdcMsg.clientId}</th>
+						</tr>
+						<tr>
+							<td>#{bdcBacking.id}</td>
+							<td>#{bdcBacking.ref}</td>
+							<td>#{bdcBacking.price}</td>
+							<td>#{bdcBacking.clientId}</td>
+						</tr>
+					</table>
+
+				</div>
+				</h:panelGroup>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

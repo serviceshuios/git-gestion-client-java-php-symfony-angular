@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition>
+		<h:form title="#{clientMsg.creationTitle}" binding="#{clientCreateForm}"
+			styleClass="createForm">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{clientMsg.lastName} :" />
+				<h:inputText id="nom" value="#{clientBacking.nom}" required="true">
+					<f:validateRegex pattern="\p{L}*"></f:validateRegex>
+					<f:validateLength minimum="2" maximum="255" />
+				</h:inputText>
+				<h:outputLabel value="#{clientMsg.firstName} :" />
+				<h:inputText id="prenom" value="#{clientBacking.prenom}" required="true">
+					<f:validateRegex pattern="\p{L}*"></f:validateRegex>
+					<f:validateLength minimum="2" maximum="255" />
+				</h:inputText>
+			</h:panelGrid>
+         	<h:panelGroup style="display:block; text-align:center; margin-top : 1em">
+         	<h:commandButton value="#{clientMsg.createButton}"
+					action="#{clientBacking.add()}" />
+			</h:panelGroup>
+			<h:messages rendered="#{clientCreateForm.submitted}" errorClass="errorMessages" />
+			
+			<!-- 
+			<h:panelGroup>
+				<ul>
+					<li><h:message for="nom" errorClass="errorMessages"  /></li>
+					<li><h:message for="prenom" errorClass="errorMessages" /></li>
+				</ul>
+			</h:panelGroup> 
+			-->
+		</h:form>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,3 @@
+login;nom;prenom;password;commentaire;icon;expiration;admin
+admin;Macé;Noël;;Ceci est le compte de l'administrateur général;;admin.png;;1
+test;Quiroule;Pierre;;Un compte pour le debugging coté client;;pierre.png;0

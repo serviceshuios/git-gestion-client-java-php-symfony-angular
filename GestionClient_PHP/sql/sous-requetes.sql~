@@ -1,0 +1,43 @@
+# afficher l'administateur ayant la plus ancienne date d'expiration
+
+SELECT MIN(expiration) FROM (
+	SELECT * FROM Client
+	WHERE admin=1
+) AS Admin_clients;
+
+# afficher le plus petit montant des bons de commande des admins
+
+SELECT MIN(montant) FROM (
+	SELECT BonDeCommande.* FROM BonDeCommande
+		INNER JOIN Client
+		ON BonDeCommande.client = Client.login
+	Where admin=1
+) AS Bdc_admins ;
+
+# afficher les bons de commande de tous les administrateurs dont le compte n'a pas expiré, par une sous-requête dans la condition
+
+SELECT * FROM BonDeCommande
+WHERE client IN (
+	SELECT login FROM Client 
+	WHERE admin=1 AND expiration + 0 < NOW()
+);
+
+# récupérer le login et la date d'expiration du compte client ayant la date d'expiration la plus ancienne, via une sous-requête dans la condition
+
+SELECT login, expiration FROM Client
+WHERE expiration = (
+	SELECT min(expiration) FROM Client
+);
+
+# afficher les bons de commande si il existe un administrateur dont le compte n'a pas expiré
+
+SELECT * FROM BonDeCommande
+WHERE EXISTS (
+	SELECT * FROM Client
+	WHERE admin=1 AND expiration > NOW()
+);
+
+# Créer un nouveau bon de commande pour 'Noël Macé' avec les informations suivantes :
+# 'nmace_00' + nombre de bdc de cet utilisateur + 1, login de l'utilisateur, 'un test de insert par sous-requête', 10, date courante, 30
+
+

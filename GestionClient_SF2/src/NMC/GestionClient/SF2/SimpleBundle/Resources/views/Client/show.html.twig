@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %} {% block title %}Welcome !{% endblock
+%} {% block body %}
+<h2 class="center">Affichage des clients</h2>
+
+	{% if (clients is defined) and (clients|length > 0 ) %}
+
+<table class="sql_table">
+	<tr>
+		<th>login</th>
+		<th>nom</th>
+		<th>prenom</th>
+		<th>commentaire</th>
+		<th>admin</th>
+	</tr>
+	{% for client in clients %}
+	<tr>
+		<td>{{ client.login }}</td>
+		<td>{{ client.nom }}</td>
+		<td>{{ client.prenom }}</td>
+		<td>{{ client.commentaire }}</td>
+		<td>{{ client.admin }}</td>
+	</tr>
+	{% endfor %}
+	
+
+</table>
+{% elseif login is defined %}
+<p class="errorMessage center">Le client {{ login }} n'existe pas</p>
+{% elseif (by is defined) and by %}
+<p class="errorMessage center">Aucun client ne correspond à votre requête !</p>
+{% else %}
+<p class="errorMessage center">Aucun client enregistré pour l'instant !</p>
+	{% endif %}
+
+
+{% endblock %}

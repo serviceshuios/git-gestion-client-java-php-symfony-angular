@@ -1,0 +1,4 @@
+services:
+#    nmc_gestion_client_sf2_simple.example:
+#        class: NMC\GestionClient\SF2\SimpleBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

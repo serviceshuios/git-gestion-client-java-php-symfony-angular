@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 avr. 2014 17:40:12 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.noelmace.gestionclient.spring.business.entities.Client" table="CLIENT">
+        <id name="id" type="java.lang.Long" access="field">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="nom" type="java.lang.String" access="field">
+            <column name="NOM" />
+        </property>
+        <property name="prenom" type="java.lang.String" access="field">
+            <column name="PRENOM" />
+        </property>
+        <set name="bonsDeCommande" table="BONDECOMMANDE" inverse="false" lazy="false" access="field" cascade="all">
+            <key>
+                <column name="CLIENT" />
+            </key>
+            <one-to-many class="com.noelmace.gestionclient.spring.business.entities.BonDeCommande" />
+        </set>
+    </class>
+</hibernate-mapping>

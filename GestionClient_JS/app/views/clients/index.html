@@ -1,0 +1,28 @@
+<div class="view index-view" ng-controller="ClientsCtrl as clientsCtrl">
+  <div class="row">
+    <h1>Clients</h1>
+    <search-form class="pull-right" elements="searchElmts" selected-prop="search.prop" pattern="search.pattern"></search-form>
+  </div>
+  <div class="row top-buffer">
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th class="text-center">id</th>
+          <th class="text-center">prenom</th>
+          <th class="text-center">nom</th>
+          <th class="text-center">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr client-row client="client" ng-repeat="client in clients | filter : filterObj"></tr>
+        <!-- <tr client-create-row errors="create.errors" sender="addClient(client)"></tr> -->
+        <!-- <tr client-create-row ></tr> -->
+      </tbody>
+    </table>
+  </div>
+  <div ng-if="create.errors">
+    <ul class="errors" >
+      <li ng-repeat="error in create.errors">{{error}}</li>
+    </ul>
+  </div>
+</div>

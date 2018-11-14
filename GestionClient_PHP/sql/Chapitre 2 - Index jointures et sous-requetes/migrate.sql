@@ -1,0 +1,34 @@
+SHOW TABLE STATUS;
+
+CREATE TABLE New_BonDeCommande (
+id VARCHAR(54) UNIQUE NOT NULL,
+commentaire TINYTEXT,
+montant DECIMAL(6,2) NOT NULL DEFAULT 0,
+date DATE NOT NULL,
+delais SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+PRIMARY KEY (id)
+)ENGINE='MyISAM';
+
+CREATE TABLE New_Client (
+login VARCHAR(50) UNIQUE NOT NULL,
+nom VARCHAR(50),
+prenom VARCHAR(50),
+password VARCHAR(32) NOT NULL,
+commentaire TEXT,
+icon VARCHAR(255),
+expiration TIMESTAMP,
+admin TINYINT(1) NOT NULL DEFAULT 0,
+PRIMARY KEY (login)
+)ENGINE=MYISAM;
+
+INSERT INTO New_BonDeCommande
+SELECT * FROM BonDeCommande;
+
+INSERT INTO New_Client
+SELECT * FROM Client;
+
+DROP TABLE Client;
+DROP TABLE BonDeCommande;
+
+RENAME TABLE New_Client TO Client;
+RENAME TABLE New_BonDeCommande TO BonDeCommande;

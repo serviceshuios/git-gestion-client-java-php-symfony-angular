@@ -1,0 +1,3 @@
+ALTER TABLE BonDeCommande
+ADD COLUMN client VARCHAR(50) NOT NULL,
+ADD CONSTRAINT fk_client FOREIGN KEY client REFERENCES Client(login);

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition>
+		<h:form title="#{bdcMsg.creationTitle}" binding="#{bdcCreateForm}"
+			styleClass="createForm">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{bdcMsg.ref} :" />
+				<h:inputText id="ref" value="#{bdcBacking.ref}" required="true">
+<!-- 				<f:validateRegex pattern="\p{L}*"></f:validateRegex> -->
+					<f:validateLength minimum="5" maximum="255" />
+				</h:inputText>
+				<h:outputLabel value="#{bdcMsg.price} :" />
+				<h:inputText id="price" value="#{bdcBacking.price}">
+					<f:validateDoubleRange minimum="0" />
+				</h:inputText>
+				<h:outputLabel value="#{bdcMsg.clientId} :" />
+				<h:inputText id="clientId" value="#{bdcBacking.clientId}">
+					<f:validateLongRange minimum="1" />
+					<f:validator binding="#{clientIdValidator}" />
+				</h:inputText>
+			</h:panelGrid>
+         	<h:panelGroup style="display:block; text-align:center; margin-top : 1em">
+         	<h:commandButton value="#{bdcMsg.createButton}"
+					action="#{bdcBacking.add()}" />
+			</h:panelGroup>
+			<h:messages rendered="#{bdcCreateForm.submitted}" errorClass="errorMessages"/>
+			
+			<!-- 
+			<h:panelGroup>
+				<ul>
+					<li><h:message for="nom" errorClass="errorMessages"  /></li>
+					<li><h:message for="prenom" errorClass="errorMessages" /></li>
+				</ul>
+			</h:panelGroup> 
+			-->
+		</h:form>
+	</ui:composition>
+</h:body>
+</html>

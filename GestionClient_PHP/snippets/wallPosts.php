@@ -1,0 +1,1 @@
+<div class="msg"> <p class="msgContent">Test !</p><span class="msgAuthor"><img class="icon" src="uploads/default.jpg" /> admin - le 17/10/14</span> </div>

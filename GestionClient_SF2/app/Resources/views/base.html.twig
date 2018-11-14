@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+{% stylesheets
+"bundles/nmcgestionclientsf2simple/css/*" %}
+	    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% block stylesheets %}{% endblock %}
+
+
+<title>{% block title %}GestionClient SF2{% endblock %}</title>
+</head>
+
+<body>
+
+	<!-- en-tête -->
+
+	<header>
+
+		<div id="title">
+			<h1>GestionClient PHP</h1>
+			<div class="connectLkn" >
+					{%  if app.user %}
+						Login : {{ app.user.username }}
+						<a href="{{ path('logout') }}">(se déconnecter)</a>
+					{%  else %}
+						<a href="{{ path('login') }}">connection</a>
+					{%  endif %}
+			</div>
+		</div>
+
+		<nav>
+			<ul>
+				<li><a href="{{ path('simple_homepage') }}">Acceuil</a></li>
+				<li><a href="#">Gestion des clients</a>
+					<ul>
+						<li><a href="{{ path('simple_showall_clients') }}">Afficher les clients</a></li>
+						<li><a href="{{ path('simple_create_client') }}">Enregistrer un nouveau client</a></li>
+					</ul></li>
+				<li><a href={{ path('nmc_note') }}>Notes</a></li>
+			</ul>
+		</nav>
+		<div>{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}</div>
+	</header>
+
+	<!-- Le corps -->
+
+	<div id="content">{% block body %}{% endblock %}</div>
+
+	<!-- Le pied de page -->
+
+	<footer>
+		<p>
+			L'ensemble des ressources crées par Noël Macé, ce site compris, sont,
+			sauf mention contraire, distribuées sous licence <a rel="license"
+				href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+				alt="CC BY-NC-SA" style="border-width: 0; vertical-align: middle;"
+				src="http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>.
+		</p>
+	</footer>
+	{% block javascripts %}{% endblock %}
+
+</body>
+</html>

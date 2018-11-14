@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<objects>
+	<group name="PdoDao" namespace="Business\DAO" >
+		<object name='clientDAO' class="ClientDAO" />
+	</group>
+	<group name="FrontEndActions" namespace='Apps\Frontend\Actions'>
+		<object name='homeAction' class='HomeAction' >
+			<constructor-arg value="home" />
+			<constructor-arg value="frontend" />
+		</object>
+	</group>
+	<group name="BackendActions" namespace='Apps\Backend\Actions'>
+		<object name="homeAction" class="HomeAction" >
+			<constructor-arg value="home" />
+			<constructor-arg value="backend" />
+		</object>
+		<object name="listClients" class="ListClients" >
+			<propertie name="dao" ref="PdoDao/clientDAO" />
+			<constructor-arg value="clients" />
+			<constructor-arg value="backend" />
+		</object>
+	</group>
+</objects>

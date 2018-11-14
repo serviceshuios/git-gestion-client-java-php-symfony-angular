@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/default-template.xhtml">
+		<ui:define name="pageTitle">#{clientMsg.clientList}</ui:define>
+		<ui:define name="content">
+			<h:form rendered="#{not empty clientBacking.clientList}">
+				<h:dataTable value="#{clientBacking.clientList}" var="client"
+					styleClass="beanlist">
+					<h:column>
+						<f:facet name="header">#{clientMsg.id}</f:facet>
+					#{client.id}
+				</h:column>
+					<h:column>
+						<f:facet name="header">#{clientMsg.lastName}</f:facet>
+					#{client.nom}
+				</h:column>
+					<h:column>
+						<f:facet name="header">#{clientMsg.firstName}</f:facet>
+					#{client.prenom}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+						<h:commandLink action="#{clientBacking.delete(client)}">
+							<h:graphicImage name="img/delete.png" height="25" width="25"
+								style="margin-top : 4px" />
+						</h:commandLink>
+						<h:commandLink action="#{clientBacking.initModify(client)}">
+							<h:graphicImage name="img/modify.png" height="25" width="25"
+								style="margin-top : 4px" />
+						</h:commandLink>
+					</h:column>
+					<!-- TODO : delete and modify -->
+				</h:dataTable>
+				<div style="text-align: center; margin-top: 2em">
+				<h:commandLink action="#{clientBacking.sort()}">#{msg.sort}</h:commandLink>
+				</div>
+			</h:form>
+			<h:panelGroup rendered="#{empty clientBacking.clientList}">
+				<p class="errorMessages">#{msg.emptyTable}</p>
+			</h:panelGroup>
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

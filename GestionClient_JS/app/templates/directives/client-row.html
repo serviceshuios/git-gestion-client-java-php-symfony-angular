@@ -1,0 +1,33 @@
+<tr class="client-row" ng-switch on="edit">
+  <td class="col-sm-1 text-center">
+    {{client.id}}
+  </td>
+  <td class="col-sm-4 text-center">
+    <input name="firstname" ng-model="client.firstname" ng-switch-when="true" type="text" value=""/>
+    <span ng-switch-default>{{client.firstname}}</span>
+  </td>
+  <td class="col-sm-4 text-center">
+    <input name="lastname" ng-model="client.lastname" ng-switch-when="true" type="text" value=""/>
+    <span ng-switch-default>{{client.lastname}}</span>
+  </td>
+  <td class="col-sm-3 text-center">
+    <div class="btn-group btn-group-sm" ng-switch-default>
+<!-- TODO : actions -->
+      <button class="btn btn-primary" ng-click="beginEdition()">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <a class="btn btn-danger" ng-href="#/clients/{{client.id}}/delete">
+        <span class="glyphicon glyphicon-trash" ng-href="#"></span>
+      </a>
+      <a class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        bdc</a>
+    </div>
+    <div class="btn-group btn-group-sm" ng-switch-when="true">
+      <button class="btn btn-success" ng-click="save(client)" ng-switch on="create.saving">
+        <span ng-switch-when="true">saving ...</span>
+        <span class="glyphicon glyphicon-save" ng-switch-default></span>
+      </button>
+    </div>
+  </td>
+</tr>
